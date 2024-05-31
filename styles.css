@@ -1,4 +1,4 @@
-/* styles.css */
+
 body {
   font-family: 'Spartan', sans-serif;
   background-color: #f0f4f8;
@@ -11,7 +11,7 @@ body {
 }
 
 header {
-  background-color: #fff;
+  background-image: url('./images/bg-header-desktop.svg');  
   width: 100%;
   max-width: 800px;
   margin-bottom: 20px;
@@ -21,7 +21,7 @@ header {
   align-items: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  display: none; /* Hidden by default */
+  display: none; 
 }
 
 .filters {
@@ -182,7 +182,7 @@ header {
   }
 }
 
-/* Filter Container */
+
 .filter-container {
   display: flex;
   justify-content: space-between;
@@ -194,7 +194,7 @@ header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Filter Buttons */
+
 .filter-buttons {
   display: flex;
   gap: 10px;
@@ -228,13 +228,11 @@ header {
   color: #ff6b6b;
 }
 
-/* Active Filter Button */
 .filter-btn.active {
   background-color: #5ba4a4;
   color: white;
 }
 
-/* Clear Button */
 .clear-btn {
   background: none;
   border: none;
@@ -247,7 +245,7 @@ header {
   color: #ff6b6b;
 }
 
-/* Job Listing Styles */
+
 .job-listing {
   background-color: white;
   padding: 20px;
