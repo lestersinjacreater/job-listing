@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | Job Listings</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="filter-container" id="filter-container">
-    <div class="filters" id="filters"></div>
-    <button class="clear" id="clear">Clear</button>
-  </header>
-  <div class="job-listings" id="job-listings"></div>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">lester the great</a>.
+  <div class="filter-buttons">
+    <button data-filter="Frontend">Frontend</button>
+    <button data-filter="CSS">CSS</button>
+    <button data-filter="JavaScript">JavaScript</button>
   </div>
+  <div id="job-listings"></div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  
   <script src="script.js"></script>
 </body>
 </html>

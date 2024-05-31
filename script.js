@@ -7,14 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return response.json();
       })
-      .then(data => renderJobListings(data))
+      .then(data => {
+        renderJobListings(data);
+        addFilterListeners(data);
+      })
       .catch(error => console.error('Error fetching data:', error));
   });
   
-  function renderJobListings(jobListings) {
+  function renderJobListings(jobListings, filters = []) {
     const listingsContainer = document.getElementById('job-listings');
+    listingsContainer.innerHTML = ''; // Clear previous listings
   
     jobListings.forEach(job => {
+      if (filters.length > 0 && !filters.some(filter => job.languages.includes(filter) || job.tools.includes(filter) || job.role.includes(filter))) {
+        return; // Skip job if it doesn't match any of the filters
+      }
+  
       const jobElement = document.createElement('div');
       jobElement.className = 'job-listing';
   
@@ -78,6 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
       jobElement.appendChild(jobMeta);
   
       listingsContainer.appendChild(jobElement);
+    });
+  }
+  
+  function addFilterListeners(data) {
+    const filterButtons = document.querySelectorAll('.filter-buttons button');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        const activeFilters = Array.from(document.querySelectorAll('.filter-buttons button.active')).map(btn => btn.getAttribute('data-filter'));
+  
+        if (button.classList.contains('active')) {
+          button.classList.remove('active');
+        } else {
+          button.classList.add('active');
+        }
+  
+        const newActiveFilters = Array.from(document.querySelectorAll('.filter-buttons button.active')).map(btn => btn.getAttribute('data-filter'));
+        renderJobListings(data, newActiveFilters);
+      });
     });
   }
   
