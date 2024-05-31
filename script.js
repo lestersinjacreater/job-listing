@@ -1,4 +1,4 @@
-// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('data.json')
       .then(response => response.json())
