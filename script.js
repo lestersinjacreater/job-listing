@@ -91,20 +91,21 @@ document.addEventListener('DOMContentLoaded', () => {
   
   function addFilterListeners(data) {
     const filterButtons = document.querySelectorAll('.filter-buttons button');
+    const clearButton = document.querySelector('.clear-btn');
+  
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
         const filter = button.getAttribute('data-filter');
+        button.classList.toggle('active');
+  
         const activeFilters = Array.from(document.querySelectorAll('.filter-buttons button.active')).map(btn => btn.getAttribute('data-filter'));
-  
-        if (button.classList.contains('active')) {
-          button.classList.remove('active');
-        } else {
-          button.classList.add('active');
-        }
-  
-        const newActiveFilters = Array.from(document.querySelectorAll('.filter-buttons button.active')).map(btn => btn.getAttribute('data-filter'));
-        renderJobListings(data, newActiveFilters);
+        renderJobListings(data, activeFilters);
       });
+    });
+  
+    clearButton.addEventListener('click', () => {
+      document.querySelectorAll('.filter-buttons button').forEach(button => button.classList.remove('active'));
+      renderJobListings(data);
     });
   }
   

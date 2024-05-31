@@ -7,16 +7,19 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="filter-buttons">
-    <button data-filter="Frontend">Frontend</button>
-    <button data-filter="CSS">CSS</button>
-    <button data-filter="JavaScript">JavaScript</button>
+  <div class="filter-container">
+    <div class="filter-buttons">
+      <button data-filter="Frontend" class="filter-btn">Frontend <span class="remove-filter">×</span></button>
+      <button data-filter="CSS" class="filter-btn">CSS <span class="remove-filter">×</span></button>
+      <button data-filter="JavaScript" class="filter-btn">JavaScript <span class="remove-filter">×</span></button>
+    </div>
+    <button class="clear-btn">Clear</button>
   </div>
   <div id="job-listings"></div>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">lester the great</a>.
   </div>
   
   <script src="script.js"></script>
